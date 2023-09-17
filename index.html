@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D7H9RWH352"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D7H9RWH352');
+</script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora de Código Penal - PRF </title>
+        <meta name="description" content="Uma calculadora penal para que auxilia no cálculo de penas e multas para diferentes crimes.">
+        <meta name="keywords" content="calculadora penal, código penal, calculadora de penas">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="icon" href="assets/favicon.png"> 
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4548213831892302"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+      <script src="js/mainheader.js"></script> 
+      <section id="info">
+        <h1>Calculadora de Código Penal PRF - Grande Carioca</h1>
+        
+            <p></p>    
+        </section>
+        <section id="formulario">
+            <h3></h3>    
+            <form id="crimeForm">
+                <div class="form-group">
+                    <label for="nomeAcusado"> <strong>Nome do Acusado</strong>:</label>
+                    <input type="text" class="form-control" id="nomeAcusado" placeholder="Nome do Acusado">
+                </div>
+                <div class="form-group">
+                    <label for="passaporteAcusado"> <strong>Passaporte do Acusado</strong>:</label>
+                    <input type="text" class="form-control" id="passaporteAcusado" placeholder="Passaporte do Acusado" oninput="validarInput(this)">
+                </div>
+                <div class="form-group">
+                    <label for="crimes"> <strong>Crimes</strong>:</label>
+                    <select id="crimes" class="form-control" multiple size="10">
+                        <!-- As opções são preenchidas pelo JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="atenuantes"> <strong>Atenuantes</strong>:</label>
+                    <select id="atenuantes" class="form-control" multiple>
+                        <!-- As opções são preenchidas pelo JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pagarFianca"> <strong>Fiança</strong>:</label>
+                    <select id="pagarFianca" class="form-control">
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary"> Calcular Pena</button>
+            </form>
+        </section>
+        <div class="card mt-4">
+            <div id="resultado" class="card-body">
+                <h5 class="card-title"> Ficha Criminal</h5>
+                <p id="nome-acusado"></p>
+                <p id="passaporte-acusado"></p>
+                <p id="pena-total"></p>
+                <p id="reducao-aplicada"></p>
+                <p id="pena-reduzida"></p>
+                <p id="total-multa"></p>
+                <p id="valor-fianca-total"></p>
+                <p id="crimes-cometidos"></p>
+                <p id="fianca-paga"></p>
+                <p id="advogado-constituido"></p>
+                <p id="prisao-feita-por"></p>
+                <p id="policias-envolvidos"></p>
+
+            </div>
+        </div>
+        <div class="card mt-4">
+            <button id="copiar" onclick="copiarResultado()">📋 Copiar</button>
+            <textarea id="resultado-copiado" readonly ></textarea>
+        </div>
+        <section id="banner" class="banner-section">
+            <div class="banner-wrapper">
+                <a href="index.html">
+                    <img src="img/prf.png" alt="Banner" width="450" height="150">
+                </a>
+            </div>
+        </section> 
+    </div>    
+    <script src="js/mainfooter.js"></script>  
+
+    <!-- Seu arquivo JS personalizado -->
+    <script src="js/codigo-penal.js"></script>
+
+    <script>
+            function validarInput(input) {
+            var valor = input.value;    
+            var numerico = /^[0-9]+$/;
+                if (!valor.match(numerico)) {
+                    input.value = "";
+                    alert("Insira o passaporte de forma correta!");
+                }
+            }
+                    function copiarResultado() {
+            var resultado = document.getElementById('resultado').innerText;
+            var campoCopiado = document.getElementById('resultado-copiado');
+            campoCopiado.value = resultado;
+            campoCopiado.select();
+            campoCopiado.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+            alert('A ficha criminal foi copiada, edite e coloque no canal prisões, incluindo foto do detento!');
+        }
+    </script>
+</body>
+</html>
+ 

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D7H9RWH352"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D7H9RWH352');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código Penal - GTA RP</title>
+    <meta name="description" content="Calculadora Penal PRF Grande Carioca.">
+    <meta name="keywords" content="calculadora penal, grande carioca">
+    <link rel="stylesheet" href="css/styles.css"> 
+    <link rel="icon" href="assets/favicon.png"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+      <script src="js/mainheader.js"></script> 
+        <!-- Content of the page -->
+        <section id="codigo-penal">
+            <h2>Código Penal da cidade Grande Carioca</h2>
+                <p>O código penal oficial pode ser encontrado aqui: 
+                    <a href="https://docs.google.com/spreadsheets/d/1MCG_u-ZH_gwqL26rTqJ8mUqVabfc-afd5y44e-so0xE/edit#gid=0" target="_blank">CÓDIGO PENAL - GRANDE CARIOCA</a>
+                </p>
+            <div class="table-responsive">
+                <table id="tabela-codigo-penal" class="display">
+                    <thead>
+                        <tr>
+                            <th>Número</th>
+                            <th>Crime</th>
+                            <th>Multa</th>
+                            <th>Sentença</th>
+                            <th>Direito a Fiança</th>
+                            <th>Valor da Fiança</th>
+                            <th>Categoria</th>
+                            <th>Definição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be dynamically generated -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <div id="product-section"></div>
+        <section id="banner" class="banner-section">
+            <div class="banner-wrapper">
+                <a href="index.html">
+                    <img src="img/prf.png" alt="Banner" width="450" height="150">
+                </a>
+            </div>
+        </section>                 
+    </div>
+    <script src="js/mainfooter.js"></script>  
+    <!-- Add the required JavaScript libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+    <script src="js/codigo-penal.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#tabela-codigo-penal').DataTable({
+                "language": {
+                    "sEmptyTable": "Nenhum registro encontrado",
+                    "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas",
+                    "sInfoEmpty": "Mostrando 0 a 0 de 0 entradas",
+                    "sInfoFiltered": "(filtrado de _MAX_ entradas no total)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ",",
+                    "sLengthMenu": "Mostrar _MENU_ entradas",
+                    "sLoadingRecords": "Carregando...",
+                    "sProcessing": "Processando...",
+                    "sSearch": "Buscar:",
+                    "sZeroRecords": "Nenhum registro encontrado",
+                    "oPaginate": {
+                        "sFirst": "Primeiro",
+                        "sLast": "Último",
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Ordenar colunas de forma ascendente",
+                        "sSortDescending": ": Ordenar colunas de forma descendente"
+                    },
+                    "select": {
+                        "rows": {
+                            "_": "Selecionado %d linhas",
+                            "0": "Nenhuma linha selecionada",
+                            "1": "Selecionado 1 linha"
+                        }
+                    }
+                }
+            });
+        });
+
+        for (var i = 0; i < codigoPenal.length; i++) {
+            var crime = codigoPenal[i];
+            var row = $('<tr>');
+
+            row.append($('<td>').text(crime.numero));
+            row.append($('<td>').text(crime.crime));
+            row.append($('<td>').text(crime.multa));
+            row.append($('<td>').text(crime.sentenca));
+            row.append($('<td>').text(crime.direito_a_fianca ? 'Sim' : 'Não'));
+            row.append($('<td>').text(crime.valor_fianca));
+            row.append($('<td>').text(crime.categoria));
+            row.append($('<td>').text(crime.definicao));
+            $('#tabela-codigo-penal tbody').append(row);
+        }
+
+    </script>
+    <script src="js/products.js"></script>
+   </body>
+</html>
